@@ -32,7 +32,7 @@
           <div>
             <ol>
               <li>Background</li>
-              <li>Past and Present</li>
+              <li>Status</li>
               <li>Architecture</li>
               <li>Extensions</li>
             </ol>
@@ -51,8 +51,8 @@
       <section>
         <h2>Background: What is iAccess</h2>
         <div class="r-hstack">
-          <div>
-            <ul>
+          <div style="width: 50%;">
+            <ul style="font-size: smaller;">
               <li>UI for the Web</li>
               <li>Desktop and tablets</li>
               <li>Based on the new REST API (Java Extensions included)</li>
@@ -87,12 +87,12 @@
       </section>
       <!-- ****************************************** -->
       <section>
-        <h2>Past and Present</h2>
+        <h2>Status: Brief History</h2>
         <iframe data-autoplay width="700" height="540" src="assets/html/timeline.html" frameborder="0"></iframe>
       </section>
       <!-- ****************************************** -->
       <section>
-        <h2>Past and Present</h2>
+        <h2>Status: Weekly Usage Today</h2>
         <img src="assets/png/google-analytics.png" style="height: 500px;">
       </section>
       <!-- ****************************************** -->
@@ -114,7 +114,7 @@
       </section>
       <!-- ****************************************** -->
       <section data-auto-animate>
-        <h2>Architecture</h2>
+        <h2>Architecture: Integrations</h2>
         <img data-id="diagram" src="assets/svg/iaccess-architecture-2.svg"></img>
       </section>
       <!-- ****************************************** -->
@@ -124,18 +124,13 @@
           <li>WSC-like extension model (...<em>think MDML/MWSL</em>)</li>
           <li>Edit and deploy using the Extender</li>
           <li>Extensions are stored in <em>MaconomyDir\Web</em></li>
-          <li>One JSON format as opposed to multiple XML formats</li>
+          <li>One JSON format vs many XML formats</li>
           <li>Different approach to extension file layout</li>
         </ul>
       </section>
       <!-- ****************************************** -->
       <section>
-        <h2>Extension File Layout</h2>
-        <img src="assets/svg/file-layout-1.svg"></img>
-      </section>
-      <!-- ****************************************** -->
-      <section>
-        <h2>Extension File Layout</h2>
+        <h2>Extensions: File Layout</h2>
         <img src="assets/svg/file-layout-1.svg"></img>
       </section>
       <!-- ****************************************** -->
@@ -191,7 +186,7 @@
       </section>
       <!-- ****************************************** -->
       <section>
-        <h2>Extension File Layout</h2>
+        <h2>Extensions: File Layout</h2>
         <ul>
           <li>The browser initially requests <em>application.json</em></li>
           <li>The server compiles that based on a large set of JSON files</li>
@@ -217,32 +212,202 @@
       </section>
       <!-- ****************************************** -->
       <section>
-        <h2>Extension File Layout (Big Picture)</h2>
-        <dl>
+        <h2>Extensions: File Layout (Big Picture)</h2>
+        <dl style="font-size: smaller;">
           <dt>authencation.json</dt>
-          <dd>Which login methods and URLs are supported (<em>may be deprecated</em>)</dd>
-          <dt>shell.json</dt>
-          <dd>Configure menu, notifications, formats, conversations</dd>
+          <dd>Which login methods and URLs are supported<br>(<em>may eventually be replaced by a workflow for TIA consultants</em>)</dd>
           <dt>platform.json</dt>
           <dd>Configure language, usage tracking and advanced container overrides</dd>
+          <dt>shell.json</dt>
+          <dd>Configure menu, notifications, formats, conversations</dd>
           <dt>workspace.json</dt>
           <dd>Extend existing workspaces and/or build new ones</dd>
         </dl>
       </section>
       <!-- ****************************************** -->
       <section>
-        <h2>Title???</h2>
-        <p>Content???</p>
+        <h2>Workspaces</h2>
+        <div>
+          <img src="assets/png/expense-sheets.png">
+          <ul style="font-size: smaller;">
+            <li>Contained in a single folder with one main file, e.g., <em>ExpenseSheets.json</em></li>
+            <li>Main properties are <em>dataBindings</em> and <em>layout</em> that correspond to <em>MWSL/MDML</em> in the WSC</li>
+          </ul>
+        </div>
       </section>
       <!-- ****************************************** -->
       <section>
-        <h2>Title???</h2>
-        <p>Content???</p>
+        <h2>Workspaces</h2>
+        <div class="r-hstack">
+          <div style="width: 50%;">
+            <ul style="font-size: smaller;">
+              <li>Workspace name included for searchability</li>
+              <li>Files match UI areas, e.g., heading, list view, each row in the layout</li>
+            </ul>
+          </div>
+          <div>
+            <img src="assets/png/file-hierarchy.png">
+          </div>
+        </div>
+      </section>
+      <!-- ****************************************** -->
+      <section data-auto-animate>
+        <h2 data-id="code-title">Data Bindings</h2>
+        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2-5|17-23|24-30"><script type="text/template">
+{
+  "container": {
+    "source": "ExpenseSheets",
+    "type": "search-filter",
+    "name": "ExpenseSheetsFilter",
+    "parameters": {
+      "ExpenseSheetNumber": {
+        "urlParameter": "ExpenseSheetNumber"
+      }
+    },
+    "orderBy": [
+      {
+        "source": "ExpenseSheetNumber",
+        "order": "descending"
+      }
+    ],
+    "bindings": [
+      {
+        "binding": "with",
+        "container": {
+          "source": "ExpenseSheets",
+          "type": "card",
+          "name": "ExpenseSheetsCard",
+          "bindings": [
+            {
+              "binding": "with",
+              "container": {
+                "source": "ExpenseSheets",
+                "type": "table",
+                "name": "ExpenseSheetsTable",
+                "bindings": [ ... ]
+        </script></code></pre>
       </section>
       <!-- ****************************************** -->
       <section>
-        <h2>Title???</h2>
-        <p>Content???</p>
+        <h2>Data Bindings: concepts</h2>
+        <dl style="font-size: smaller;">
+          <dt>Containers</dt>
+          <dd>Represents panes from containers made available in the REST API / Extension Framework</dd>
+          <dt>Bindings</dt>
+          <dd>The relations between these containers, e.g., primary key, mount, with etc</dd>
+        </dl>
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>Data Bindings: concepts</h2>
+        <dl style="font-size: smaller;">
+          <dt>Container types</dt>
+          <dd>A container can be represented in different ways, e.g., search-filter, card, table, or filter-as-table, or have a special origin, e.g., document, analyzer, or pp</dd>
+          <dt>Extras</dt>
+          <dd>URL parameters, Shared Record, OrderBy, Restriction, Paging, and Triggers</dd>
+        </dl>
+      </section>
+      <!-- ****************************************** -->
+      <section data-auto-animate>
+        <h2 data-id="code-title">Layout</h2>
+        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="7|8-10|11-13|14-16|17-19|20-34"><script type="text/template">
+{
+  "name": "ExpenseSheets",
+  "T$title": "Expenses",
+  "dataBindings": {
+    "$ref": "ExpenseSheets_DataBindings"
+  },
+  "layout": {
+    "heading": {
+      "$ref": "ExpenseSheets_Heading"
+    },
+    "record": {
+      "$ref": "ExpenseSheets_Record"
+    },
+    "list": {
+      "$ref": "ExpenseSheets_List"
+    },
+    "actionBar": {
+      "$ref": "ExpenseSheets_ActionBar"
+    },
+    "rows": [
+      {
+        "$ref": "ExpenseSheets_Card_Row"
+      },
+      {
+        "tabs": [
+          {
+            "$ref": "ExpenseSheets_Registrations_Tab"
+          },
+          {
+            "$ref": "ExpenseSheets_Receipts_Tab"
+          }
+        ]
+      }
+    ]
+  }
+}
+        </script></code></pre>
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>Layout: concepts</h2>
+        <dl style="font-size: smaller;">
+          <dt>Heading</dt>
+          <dd>Workspace navigation, e.g., calendar, filter or none</dd>
+          <dt>List</dt>
+          <dd>List view where the main search can be controlled</dd>
+        </dl>
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>Layout: concepts</h2>
+        <dl style="font-size: smaller;">
+          <dt>Record</dt>
+          <dd>Summary information about the current, main record, e.g., this expense sheet</dd>
+          <dt>Action Bar</dt>
+          <dd>Selected actions</dd>
+          <dt>Rows</dt>
+          <dd>The layout rows that constitute the main content. Rows can be divided in columns etc.</dd>
+        </dl>
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>Workspace File Layout - recap</h2>
+        <img src="assets/png/file-hierarchy.png">
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>Workspace: Two Types of Extensions</h2>
+        <dl style="font-size: smaller;">
+          <dt>Adapt</dt>
+          <dd>Extend an existing workspace by <em>overriding</em> on or more files</dd>
+          <dt>Build</dt>
+          <dd>Create a new folder with your own workspace<br>(<em>Expense Sheets is a good template</em>)</dd>
+        </dl>
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>extensions.json</h2>
+        <img src="assets/png/extensions-json.png">
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>Best Practice</h2>
+        <p class="r-fit-text">Don't try to map all WSC workspaces 1:1 to iAccess</p>
+        <p><small>It will <strong>not</strong> perform<br>
+          Too many containers in one workspace is a warning sign.<br>
+          Consider splitting large workspaces into smaller, more focused ones.</small></p>
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>Best Practice</h2>
+        <p>The data binding hierarchy represents the <em>flow of data</em>,<br>not necessarily how it looks</p>
+      </section>
+      <!-- ****************************************** -->
+      <section>
+        <h2>Best Practice</h2>
+        <img src="assets/svg/vsc-vs-iaccess.svg">
       </section>
       <!-- ****************************************** -->
       <section>
