@@ -1,5 +1,5 @@
 ---
-food: Pizza
+local: build
 ---
 <!doctype html>
 <html>
@@ -25,7 +25,10 @@ food: Pizza
       <section>
         <h2>iAccess for Maconomy</h2>
         <p>
-          <small>Anders Hessellund, Søren Bache<br>March 12, 2021<br>{{site.github.build_revision}} - {{ page.food }}</small>
+          <small>Anders Hessellund, Søren Bache<br>March 12, 2021</small>
+        </p>
+        <p>
+          <small style="font-size=10;">Last updated: {{ page.last-modified-date | date: '%B %d, %Y' }}</small>
         </p>
       </section>
       <!-- ****************************************** -->
