@@ -25,15 +25,15 @@
     <div class="reveal">
       <div class="slides">
         <!-- ****************************************** -->
-        <section>
-          <h2>iAccess for Maconomy - Part 2</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">iAccess for Maconomy - Part 2</h2>
           <p>
             <small>Anders Hessellund, Piotr Szymański<br />May 7, 2021</small>
           </p>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Agenda</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Agenda</h2>
           <ol>
             <li><em>Prerequisite: the presentation from March 12</em></li>
             <li>Anders: UI Component Tour</li>
@@ -41,21 +41,19 @@
           </ol>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Agenda - Anders</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Agenda - Anders</h2>
           <ol>
             <li>Layout <em>Recap</em></li>
             <li>Rows, Columns and Content</li>
             <li>Elements and Attributes</li>
-            <li>Standard: Grid, Table, Tabs</li>
-            <li>Externals: Embed, Document</li>
-            <li>Dashboard: KPI, Chart</li>
-            <li>Special: Conversation</li>
+            <li>Grid, Table, Tabs, Embed</li>
+            <li><em>Topics for next time?</em></li>
           </ol>
         </section>
         <!-- ****************************************** -->
         <section data-auto-animate>
-          <h2>Layout <em>Recap</em></h2>
+          <h2 data-id="code-title">Layout <em>Recap</em></h2>
           <div class="img-overlay-wrap">
             <img src="assets/png/workspace.png" />
 
@@ -72,7 +70,7 @@
         </section>
         <!-- ****************************************** -->
         <section data-auto-animate>
-          <h2>Rows, Columns and Content</h2>
+          <h2 data-id="code-title">Rows, Columns and Content</h2>
           <div class="r-hstack">
             <div>
               <!-- prettier-ignore -->
@@ -106,12 +104,12 @@
           </div>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Elements and Attributes</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Form Layout</h2>
           <img src="assets/png/form-layout.png" />
         </section>
         <!-- ****************************************** -->
-        <section>
+        <section data-auto-animate>
           <p>Presentation mode</p>
           <img src="assets/png/presentation.png" />
           <p>Edit mode</p>
@@ -119,7 +117,7 @@
         </section>
         <!-- ****************************************** -->
         <section data-auto-animate>
-          <h2>Example: Fields</h2>
+          <h2 data-id="code-title">Example: Fields</h2>
           <div class="img-overlay-wrap">
             <img src="assets/png/presentation.png" />
 
@@ -236,8 +234,8 @@
           </script></code></pre>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Form Element Types</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Form Element Types</h2>
           <div class="r-hstack">
             <div>
               <ul>
@@ -262,8 +260,8 @@
           </div>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Form Element Attributes</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Form Element Attributes</h2>
           <div class="r-hstack">
             <div>
               <ul>
@@ -286,8 +284,8 @@
           </div>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Grid</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Grid</h2>
           <div class="img-overlay-wrap">
             <img src="assets/png/budgetting.png" width="500px" />
 
@@ -298,8 +296,8 @@
           </div>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Grid</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Grid</h2>
           <!-- prettier-ignore -->
           <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|4|134|37-50|111-119"><script type="text/template">
 {
@@ -519,32 +517,299 @@
           </script></code></pre>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Table</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Tabs</h2>
+          <div class="img-overlay-wrap">
+            <img src="assets/png/budgetting.png" width="500px" />
+            
+            <!-- prettier-ignore -->
+            <svg width="100%" height="100%">
+              <rect class="fragment" data-fragment-index="1" x="5" y="95" width="410" height="40" stroke="red" stroke-width="3" fill="none" /> 
+              <rect class="fragment" data-fragment-index="2" x="5" y="270" width="410" height="40" stroke="red" stroke-width="3" fill="none" /> 
+            </svg>
+          </div>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Tabs</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Tabs</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|3-5|9-14"><script type="text/template">
+{
+  "tabs": [
+    {
+      "$ref": "JobBudgeting_WorkingBudget_Tab_FullBudget_Table"
+    },
+    {
+      "$ref": "JobBudgeting_WorkingBudget_Tab_Time_Table"
+    },
+    {
+      "T$title": "Amount",
+      "rows": [
+        ...
+      ]
+    }
+  ]
+}
+          </script></code></pre>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Embed</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Table</h2>
+          <div class="img-overlay-wrap">
+            <img src="assets/png/budgetting.png" width="500px" />
+            
+            <!-- prettier-ignore -->
+            <svg width="100%" height="100%">
+              <rect class="fragment" data-fragment-index="1" x="5" y="305" width="490" height="140" stroke="red" stroke-width="3" fill="none" /> 
+            </svg>
+          </div>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Document</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Table</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|4|69-77|19-33|165-169"><script type="text/template">
+{
+  "table": {
+    "pane": "API_JobBudgetsTableByTypeWorkingBudgetTable",
+    "columns": [
+      {
+        "action": {
+          "T$title": "Price Breakdown",
+          "icon": "icon-openoutside",
+          "T$template": "",
+          "wizard": {
+            "wizardWorkspace": {
+              "$ref": "Wizards:JobBudgetTimeDetailsWizard"
+            },
+            "pane": "API_JobBudgetsTableByTypeWorkingBudgetTable"
+          },
+          "visible": "JobsCard.DetailedTimeBudgeting"
+        }
+      },
+      {
+        "action": {
+          "T$title": "Resource Booking",
+          "T$template": "",
+          "icon": "icon-contacts-nav",
+          "wizard": {
+            "wizardWorkspace": {
+              "$ref": "Wizards:ResourceBookingsWizard"
+            },
+            "pane": "API_JobBudgetsTableByTypeWorkingBudgetTable"
+          },
+          "visible": "isPeoplePlannerEnabled() and JobsCard.UseImportedBudgetLineResourceAllocation",
+          "suppress": "ActivityType != ActivityTypeType'Amount and ActivityType != ActivityTypeType'Time"
+        }
+      },
+      {
+        "action": {
+          "T$title": "Resource Forecast",
+          "T$template": "",
+          "icon": "icon-resourcegrid-nav",
+          "wizard": {
+            "wizardWorkspace": {
+              "$ref": "Wizards:ResourceForecast:ResourceForecastWizard"
+            },
+            "pane": "API_JobBudgetsTableByTypeWorkingBudgetTable"
+          },
+          "visible": "isPeoplePlannerEnabled() and JobsCard.UseImportedBudgetLineResourceAllocation",
+          "suppress": "ActivityType !=  ActivityTypeType'Amount and ActivityType !=  ActivityTypeType'Time"
+        }
+      },
+      {
+        "field": {
+          "source": "Text",
+          "width": "md"
+        }
+      },
+      {
+        "field": {
+          "source": "LineType",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\ or NumberOfSubordinateLines = 0",
+          "width": "sm"
+        }
+      },
+      {
+        "field": {
+          "source": "TaskName",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\ or NumberOfSubordinateLines = 0",
+          "width": "sm"
+        }
+      },
+      {
+        "field": {
+          "T$title": "Empl. Category",
+          "source": "EmployeeCategoryNameVar",
+          "width": "sm",
+          "visible": "not (JobsCard.UseImportedBudgetLineResourceAllocation or JobsCard.DetailedTimeBudgeting)",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\"
+        }
+      },
+      {
+        "field": {
+          "T$title": "Employee",
+          "source": "EmployeeNameVar",
+          "width": "sm",
+          "visible": "not (JobsCard.UseImportedBudgetLineResourceAllocation or JobsCard.DetailedTimeBudgeting)",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\",
+          "info": {
+            "ref": "EmployeeInfoBubble",
+            "parameters": {
+              "Employee": "API_JobBudgetsTableByTypeWorkingBudgetEmployeesFilter"
+            }
+          }
+        }
+      },
+      {
+        "field": {
+          "T$title": "Incl. in FP",
+          "source": "IncludedInFixedPrice",
+          "visible": "JobsCard.FixedPriceInclusionSetupVar != IncludedInFixedPriceSetupType'Include_all",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\ and JobsCard.FixedPriceInclusionSetupVar = IncludedInFixedPriceSetupType'By_Task and NumberOfSubordinateLines = 0"
+        }
+      },
+      {
+        "field": {
+          "T$title": "Qty",
+          "source": "NumberOf",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\ or NumberOfSubordinateLines = 0",
+          "suppress": "LineType = JobBudgetLineTypeType'\\Sum/Text\\ and NumberOfSubordinateLines = 0"
+        }
+      },
+      {
+        "amount": {
+          "T$title": "Cost",
+          "source": "ShownCostPriceVar",
+          "currency": "API_JobBudgetsCardByTypeWorkingBudgetCard.BaseCurrencyVar",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\ or NumberOfSubordinateLines = 0",
+          "suppress": "LineType = JobBudgetLineTypeType'\\Sum/Text\\ and NumberOfSubordinateLines = 0"
+        }
+      },
+      {
+        "amount": {
+          "T$title": "Total Cost",
+          "source": "ShownCostPriceTotalVar",
+          "currency": "API_JobBudgetsCardByTypeWorkingBudgetCard.BaseCurrencyVar",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\ or NumberOfSubordinateLines = 0",
+          "suppress": "LineType = JobBudgetLineTypeType'\\Sum/Text\\ and NumberOfSubordinateLines = 0"
+        }
+      },
+      {
+        "amount": {
+          "T$title": "Billing Price",
+          "source": "BillingPriceCurrency",
+          "visible": "JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Time_and_Material or JobsCard.FixedPriceInclusionSetupVar != IncludedInFixedPriceSetupType'Include_All",
+          "currency": "API_JobBudgetsCardByTypeWorkingBudgetCard.CurrencyVar",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\ and NumberOfSubordinateLines = 0 and (JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Time_and_Material or not IncludedInFixedPrice)",
+          "suppress": "NumberOfSubordinateLines = 0 and (LineType = JobBudgetLineTypeType'\\Sum/Text\\ or not API_JobBudgetsCardByTypeWorkingBudgetCard.HasWorkBreakdownStructureVar and JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Fixed_Price and IncludedInFixedPrice)"
+        }
+      },
+      {
+        "amount": {
+          "T$title": "Total Billing Price",
+          "source": "BillingPriceTotalCurrency",
+          "visible": "JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Time_and_Material or JobsCard.FixedPriceInclusionSetupVar != IncludedInFixedPriceSetupType'Include_All",
+          "currency": "API_JobBudgetsCardByTypeWorkingBudgetCard.CurrencyVar",
+          "suppress": "NumberOfSubordinateLines = 0 and (LineType = JobBudgetLineTypeType'\\Sum/Text\\ or not API_JobBudgetsCardByTypeWorkingBudgetCard.HasWorkBreakdownStructureVar and JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Fixed_Price and IncludedInFixedPrice)"
+        }
+      },
+      {
+        "amount": {
+          "T$title": "GM",
+          "source": "ShownMarkupBaseVar",
+          "visible": "JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Time_and_Material or JobsCard.FixedPriceInclusionSetupVar != IncludedInFixedPriceSetupType'Include_All",
+          "currency": "API_JobBudgetsCardByTypeWorkingBudgetCard.BaseCurrencyVar",
+          "suppress": "NumberOfSubordinateLines = 0 and (LineType = JobBudgetLineTypeType'\\Sum/Text\\ or not API_JobBudgetsCardByTypeWorkingBudgetCard.HasWorkBreakdownStructureVar and JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Fixed_Price and IncludedInFixedPrice)"
+        }
+      },
+      {
+        "percent": {
+          "source": "ShownMarkUpPercentageVar",
+          "T$title": "Markup",
+          "visible": "JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Time_and_Material or JobsCard.FixedPriceInclusionSetupVar != IncludedInFixedPriceSetupType'Include_All",
+          "open": "LineType != JobBudgetLineTypeType'\\Sum/Text\\ and NumberOfSubordinateLines = 0 and (JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Time_and_Material or not IncludedInFixedPrice)",
+          "suppress": "NumberOfSubordinateLines = 0 and (LineType = JobBudgetLineTypeType'\\Sum/Text\\ or not API_JobBudgetsCardByTypeWorkingBudgetCard.HasWorkBreakdownStructureVar and JobsCard.InvoicingPrincipleVar = InvoicingPrincipleType'Fixed_Price and IncludedInFixedPrice)"
+        }
+      }
+    ],
+    "actions": [
+      "Create",
+      "Insert",
+      "Delete"
+    ]
+  }
+}
+          </script></code></pre>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>KPI</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Embed</h2>
+          <div class="r-hstack">
+            <div>
+              <ul>
+                <li>BO reports</li>
+                <li>PP web components</li>
+                <li>Any URL that allows it</li>
+              </ul>
+            </div>
+            <div style="margin-left: 50px;">
+              <img src="assets/png/google-maps.png" width="400px"/>
+            </div>
+          </div>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Chart</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Embed</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|5|6-11"><script type="text/template">
+{
+  "embed": {
+    "title": "Driving directions",
+    "externalLink": false,
+    "url": "https://www.google.com/maps/embed/v1/directions",
+    "query": [
+      {
+        "origin": {
+          "value": "MileageFrom"
+        }
+      },
+      {
+        "destination": {
+          "value": "MileageTo"
+        }
+      },
+      {
+        "key": "AIzkSyCv345GUQqOb4Su7Ce3YdEfBiqB6YCOJ_A"
+      }
+    ]
+  }
+}
+            </script></code></pre>
         </section>
         <!-- ****************************************** -->
-        <section>
-          <h2>Conversation</h2>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Topics for next time?</h2>
+          <div class="r-hstack">
+            <div>
+              <ul>
+                <li>Document</li>
+                <li>KPI</li>
+                <li>Chart</li>
+                <li>Conversation</li>
+                <li>Scheduler</li>
+              </ul>
+            </div>
+            <div style="margin-left: 50px">
+              <ul>
+                <li>Validators</li>
+            <li>Styling and formatting</li>
+            <li>Info bubbles</li>
+            <li>Search (<em>ctrl-g</em>)</li>
+            <li>Columns chooser</li>
+              </ul>
+            </div>
+          </div>
         </section>
         <!-- ****************************************** -->
       </div>
