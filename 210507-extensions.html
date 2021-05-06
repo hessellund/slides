@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>iAccess Training (May 7, 21)</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/zenburn.css"
+      id="highlight-theme"
+    />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- ****************************************** -->
+        <section>
+          <h2>iAccess for Maconomy - Part 2</h2>
+          <p>
+            <small>Anders Hessellund, Piotr Szymański<br />May 7, 2021</small>
+          </p>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Agenda</h2>
+          <ol>
+            <li><em>Prerequisite: the presentation from March 12</em></li>
+            <li>Anders: UI Component Tour</li>
+            <li>Piotr: Intro to Wizards</li>
+          </ol>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Agenda - Anders</h2>
+          <ol>
+            <li>Layout <em>Recap</em></li>
+            <li>Rows, Columns and Content</li>
+            <li>Elements and Attributes</li>
+            <li>Standard: Grid, Table, Tabs</li>
+            <li>Externals: Embed, Document</li>
+            <li>Dashboard: KPI, Chart</li>
+            <li>Special: Conversation</li>
+          </ol>
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2>Layout <em>Recap</em></h2>
+          <div class="img-overlay-wrap">
+            <img src="assets/png/workspace.png" />
+
+            <!-- prettier-ignore -->
+            <svg width="100%" height="100%">
+              <text class="fragment" data-fragment-index="1" x="24" y="450" font-size="50" fill="cyan">shell</text>
+              <polygon class="fragment" data-fragment-index="1" points="3,3 3,545 197,545 197,30 955,30 955,3" stroke="cyan" stroke-width="3" fill="none" ></polygon>
+              <text class="fragment" data-fragment-index="2" x="224" y="88" font-size="50" fill="purple" >heading & record</text>
+              <rect class="fragment" data-fragment-index="2" x="204" y="38" width="752" height="82" stroke="purple" stroke-width="3" fill="none" /> 
+              <text class="fragment" data-fragment-index="3" x="224" y="180" font-size="50" fill="red">rows</text> 
+              <rect class="fragment" data-fragment-index="3" x="204" y="125" width="752" height="420" stroke="red" stroke-width="3" fill="none" /> 
+            </svg>
+          </div>
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2>Rows, Columns and Content</h2>
+          <div class="r-hstack">
+            <div>
+              <!-- prettier-ignore -->
+              <ul>
+                <li class="fragment" data-fragment-index="1" style="color: red;">Rows</li>
+                <li class="fragment" data-fragment-index="5" style="color: purple;">Columns</li>
+                <li class="fragment" data-fragment-index="11" style="color: cyan;">Content</li>
+              </ul>
+            </div>
+            <div style="margin-left: 50px">
+              <!-- prettier-ignore -->
+              <svg width="600px" height="430px">
+                <!-- rows -->
+                <rect class="fragment" data-fragment-index="1" x="5" y="5" width="590" height="100" stroke="red" stroke-width="3" fill="none" /> 
+                <rect class="fragment" data-fragment-index="2" x="5" y="110" width="590" height="100" stroke="red" stroke-width="3" fill="none" /> 
+                <rect class="fragment" data-fragment-index="3" x="5" y="215" width="590" height="100" stroke="red" stroke-width="3" fill="none" /> 
+                <rect class="fragment" data-fragment-index="4" x="5" y="320" width="590" height="100" stroke="red" stroke-width="3" fill="none" />
+                <!-- columns -->
+                <rect class="fragment" data-fragment-index="5" x="20" y="120" width="180" height="80" stroke="purple" stroke-width="3" fill="none" /> 
+                <rect class="fragment" data-fragment-index="6" x="210" y="120" width="180" height="80" stroke="purple" stroke-width="3" fill="none" /> 
+                <rect class="fragment" data-fragment-index="7" x="400" y="120" width="180" height="80" stroke="purple" stroke-width="3" fill="none" /> 
+                <!-- nested rows -->
+                <rect class="fragment" data-fragment-index="8" x="215" y="125" width="170" height="20" stroke="indianred" stroke-width="3" fill="none" /> 
+                <rect class="fragment" data-fragment-index="9" x="215" y="150" width="170" height="20" stroke="indianred" stroke-width="3" fill="none" /> 
+                <rect class="fragment" data-fragment-index="10" x="215" y="175" width="170" height="20" stroke="indianred" stroke-width="3" fill="none" /> 
+                <!-- content -->
+                <circle class="fragment" data-fragment-index="11" cx="490" cy="160" r="30" fill="cyan" />
+                <circle class="fragment" data-fragment-index="12" cx="297" cy="370" r="30" fill="cyan" />
+              </svg>
+            </div>
+          </div>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Elements and Attributes</h2>
+          <img src="assets/png/form-layout.png" />
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <p>Presentation mode</p>
+          <img src="assets/png/presentation.png" />
+          <p>Edit mode</p>
+          <img src="assets/png/edit.png" />
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2>Example: Fields</h2>
+          <div class="img-overlay-wrap">
+            <img src="assets/png/presentation.png" />
+
+            <!-- prettier-ignore -->
+            <svg width="100%" height="100%">
+              <rect class="fragment" data-fragment-index="1" x="270" y="5" width="250" height="140" stroke="red" stroke-width="3" fill="none" /> 
+            </svg>
+          </div>
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2 data-id="code-title">Fields - shorthand</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|3|4-10"><script type="text/template">
+{
+  "elements": [
+    "Currency",
+    {
+      "amount": {
+        "T$title": "Total Amount",
+        "source": "AmountBase",
+        "currency": "BaseCurrencyVar"
+      }
+    }
+  ]
+}
+            </script></code></pre>
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2 data-id="code-title">Fields - expanded</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="3-7|8-16"><script type="text/template">
+{
+  "elements": [
+    {
+      "field": {
+        "source": "Currency"
+      }
+    },
+    {
+      "unitField": {
+        "T$title": "Total Amount",
+        "source": "AmountBase",
+        "unit": {
+          "source": "BaseCurrencyVar"
+        }
+      }
+    }
+  ]
+}
+            </script></code></pre>
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2 data-id="code-title">Links</h2>
+          <ul>
+            <li>URL and mail Links</li>
+            <li>Workspace Links</li>
+          </ul>
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2 data-id="code-title">URL Links</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|3|5-7"><script type="text/template">
+{
+  "link": {
+    "T$template": "Open BI Launch Pad",
+    "authentication": "business-objects",
+    "url": {
+      "value": "urlInfoView()"
+    }
+  }
+}
+          </script></code></pre>
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2 data-id="code-title">Mail Links</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|4-9"><script type="text/template">
+{
+  "link": {
+    "T$title": "E-mail",
+    "mail": "^{Host.TableSubmittedByEmployeeElectronicMailAddressVar}",
+    "query": [
+      {
+        "T$subject": "Regarding approval of customer ^{Name1} (^{CustomerNumber})"
+      }
+    ],
+    "T$template": "^{Host.TableSubmittedByEmployeeElectronicMailAddressVar}"
+  }
+}
+          </script></code></pre>
+        </section>
+        <!-- ****************************************** -->
+        <section data-auto-animate>
+          <h2 data-id="code-title">Workspace Links</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|5-10"><script type="text/template">
+{
+  "link": {
+    "T$template": "Expense Sheets",
+    "icon": "icon-openoutside",
+    "workspace": "ExpenseSheets",
+    "query": [
+      {
+        "ExpenseSheetNumber": "^{ExpenseSheetsCard.ExpenseSheetNumber}"
+      }
+    ]
+  }
+}
+          </script></code></pre>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Form Element Types</h2>
+          <div class="r-hstack">
+            <div>
+              <ul>
+                <li>Field</li>
+                <li>UnitField</li>
+                <li>Amount</li>
+                <li>Percent</li>
+                <li>Text</li>
+                <li>Link</li>
+              </ul>
+            </div>
+            <div style="margin-left: 50px">
+              <ul>
+                <li>Reference</li>
+                <li>Pair</li>
+                <li>Interval</li>
+                <li>ZipCity</li>
+                <li>Address</li>
+                <li>Status</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Form Element Attributes</h2>
+          <div class="r-hstack">
+            <div>
+              <ul>
+                <li>source</li>
+                <li>title</li>
+                <li>shadowTitle</li>
+                <li>info</li>
+                <li>search</li>
+              </ul>
+            </div>
+            <div style="margin-left: 50px">
+              <ul>
+                <li>visible</li>
+                <li>open</li>
+                <li>mandatory</li>
+                <li>autoSubmit</li>
+                <li>rendering</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Grid</h2>
+          <div class="img-overlay-wrap">
+            <img src="assets/png/budgetting.png" width="500px" />
+
+            <!-- prettier-ignore -->
+            <svg width="100%" height="100%">
+                <rect class="fragment" data-fragment-index="1" x="5" y="140" width="410" height="130" stroke="red" stroke-width="3" fill="none" /> 
+              </svg>
+          </div>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Grid</h2>
+          <!-- prettier-ignore -->
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="2|4|134|37-50|111-119"><script type="text/template">
+{
+  "grid": [
+    {
+      "lineType": "header",
+      "style": {
+        "textAlign": "right"
+      },
+      "cells": [
+        {},
+        {
+          "text": {
+            "titleValue": "JobsCard.TimeRegistrationUnit"
+          }
+        },
+        {
+          "text": {
+            "T$title": "Cost"
+          }
+        },
+        {
+          "text": {
+            "T$title": "Billing Price"
+          }
+        },
+        {
+          "text": {
+            "T$title": "GM"
+          }
+        },
+        {
+          "text": {
+            "T$title": "GM %"
+          }
+        }
+      ]
+    },
+    {
+      "cells": [
+        {
+          "text": {
+            "T$title": "Time"
+          }
+        },
+        "TimeQuantityVar",
+        {
+          "amount": {
+            "source": "ShownCostPriceTimeVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "amount": {
+            "source": "BillingPriceTimeVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "amount": {
+            "source": "ShownGrossMarginTimeVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "percent": {
+            "source": "ShownPercGrossMarginTimeVar",
+            "style": {
+              "firstMatch": [
+                {
+                  "color": "trafficlightGreen",
+                  "condition": "ShownPercGrossMarginTimeVar >= 50"
+                },
+                {
+                  "color": "trafficlightYellow",
+                  "condition": "ShownPercGrossMarginTimeVar >= 25 and ShownPercGrossMarginTimeVar < 50"
+                },
+                {
+                  "color": "trafficlightRed"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cells": [
+        {
+          "text": {
+            "T$title": "Amount"
+          }
+        },
+        {},
+        {
+          "amount": {
+            "source": "CostPriceAmountVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "amount": {
+            "source": "BillingPriceAmountVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "amount": {
+            "source": "GrossMarginAmountVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "percent": {
+            "source": "PercGrossMarginAmountVar",
+            "style": {
+              "firstMatch": [
+                {
+                  "color": "trafficlightGreen",
+                  "condition": "PercGrossMarginAmountVar >= 50"
+                },
+                {
+                  "color": "trafficlightYellow",
+                  "condition": "PercGrossMarginAmountVar >= 25 and PercGrossMarginAmountVar < 50"
+                },
+                {
+                  "color": "trafficlightRed"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "lineType": "total",
+      "cells": [
+        {
+          "text": {
+            "T$title": "Total"
+          }
+        },
+        "TimeQuantityVar",
+        {
+          "amount": {
+            "source": "ShownCostPriceVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "amount": {
+            "source": "BillingPriceVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "amount": {
+            "source": "ShownGrossMarginTotalVar",
+            "currency": "BaseCurrencyVar"
+          }
+        },
+        {
+          "percent": {
+            "source": "ShownPercGrossMarginTotalVar",
+            "style": {
+              "firstMatch": [
+                {
+                  "color": "trafficlightGreen",
+                  "condition": "ShownPercGrossMarginTotalVar >= 50"
+                },
+                {
+                  "color": "trafficlightYellow",
+                  "condition": "ShownPercGrossMarginTotalVar >= 25 and ShownPercGrossMarginTotalVar < 50"
+                },
+                {
+                  "color": "trafficlightRed"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "visible": "BaseCurrencyVar != CurrencyVar",
+      "lineType": "total",
+      "cells": [
+        {
+          "text": {
+            "T$title": "Total, Currency"
+          }
+        },
+        {},
+        {
+          "amount": {
+            "source": "ShownCostPriceCurrencyVar",
+            "currency": "CurrencyVar"
+          }
+        },
+        {
+          "amount": {
+            "source": "BillingPriceCurrencyVar",
+            "currency": "CurrencyVar"
+          }
+        },
+        {
+          "amount": {
+            "source": "ShownGrossMarginTotalCurrencyVar",
+            "currency": "CurrencyVar"
+          }
+        },
+        {}
+      ]
+    }
+  ]
+}
+          </script></code></pre>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Table</h2>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Tabs</h2>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Embed</h2>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Document</h2>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>KPI</h2>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Chart</h2>
+        </section>
+        <!-- ****************************************** -->
+        <section>
+          <h2>Conversation</h2>
+        </section>
+        <!-- ****************************************** -->
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
